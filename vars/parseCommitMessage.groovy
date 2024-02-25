@@ -1,15 +1,9 @@
 def call(String commitMessage) {
-    def commitInfo = [:]
+    def pattern = /^(feat|fix|docs|style|refactor|test|chore):\s.+$/
 
-    // Split the commit message into lines
-    def lines = commitMessage.trim().split(':')
-
-    // The first line is the commit title
-    commitInfo['title'] = lines[0].trim()
-
-    // The rest of the lines are the commit body
-    commitInfo['body'] = lines[1..-1].collect { it.trim() }.join('\n')
-    print("Durga Prasad Rath")
-
-    return this
+    if (commitMessage ==~ pattern) {
+        echo "Commit message follows the correct pattern."
+    } else {
+        error "Commit message does not follow the correct pattern."
+    }
 }
