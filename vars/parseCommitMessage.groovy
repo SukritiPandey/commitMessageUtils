@@ -10,5 +10,5 @@ def call(String commitMessage) {
     // The rest of the lines are the commit body
     commitInfo['body'] = lines[1..-1].collect { it.trim() }.join('\n')
 
-    return commitInfo
+    return this
 }
